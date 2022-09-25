@@ -1,0 +1,44 @@
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-6">
+            <h1 class="mb-3">Maintain registrations</h1>
+        </div>
+        <div class="col-6">
+            <form #form="ngForm" class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="E.g.: Event name/Name/Email/Contact/Reference" aria-label="Search" id="searchParm" name="searchParm" [(ngModel)]="searchParm">
+                <button class="btn btn-outline-success" type="submit" (click)="search()">Search</button>
+            </form>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Event Name</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Reference</th>
+                <th>Fees</th>
+                <th>Status</th>
+                <th style="width: 10%">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="!urList || urList.length == 0">
+                <td colspan="8">No record found</td>
+            </tr>
+            <tr *ngFor="let ur of urList">
+                <td>{{ ur.event_name }}</td>
+                <td>{{ ur.name }}</td>
+                <td>{{ ur.email }}</td>
+                <td>{{ ur.contact }}</td>
+                <td>{{ ur.ref_code }}</td>
+                <td>{{ ur.total_fees | number: '1.2-2' }}</td>
+                <td [class.text-danger]="ur.status == 'UP'" [class.text-success]="ur.status == 'P'">{{ ur.status }}</td>
+                <td>
+                    <a class="btn btn-primary">Registration</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

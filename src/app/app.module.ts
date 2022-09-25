@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { EventRegistrationComponent } from './components/Events/event-registration/event-registration.component';
 import { TwoDigitDecimaNumberDirective } from './directives/common-directives';
 import { PostEventRegistrationComponent } from './components/Events/post-event-registration/post-event-registration.component';
+import { MaintainEvtRegComponent } from './components/Events/maintain-evt-reg/maintain-evt-reg.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PostEventRegistrationComponent } from './components/Events/post-event-r
     MaintainEventsComponent,
     AddEventsComponent,
     EventRegistrationComponent,
-    PostEventRegistrationComponent
+    PostEventRegistrationComponent,
+    MaintainEvtRegComponent
   ],
   imports: [
     BrowserModule,

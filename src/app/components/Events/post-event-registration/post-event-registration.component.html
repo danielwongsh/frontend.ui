@@ -7,50 +7,50 @@
     <div class="row gx-5 mt-2">
         <div class="col-6">
             <div class="row">
-                <div class="col-4">
-                    <label for="Name" class="form-label">Name</label>
+                <div class="col-4 border border-dark">
+                    <label class="fw-bold">Name</label>
                 </div>
-                <div class="col-8">
+                <div class="col-8 border border-dark">
                     <label>{{ registration.name }}</label>
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <label for="Contact" class="form-label">Contact</label>
+            <div class="row">
+                <div class="col-4 border border-dark">
+                    <label class="fw-bold">Contact</label>
                 </div>
-                <div class="col-8">
+                <div class="col-8 border border-dark">
                     <label>{{ registration.contact }}</label>
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <label for="Country" class="form-label">Country</label>
+            <div class="row">
+                <div class="col-4 border border-dark">
+                    <label class="fw-bold">Country</label>
                 </div>
-                <div class="col-8">
+                <div class="col-8 border border-dark">
                     <label>{{ registration.country }}</label>
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <label for="Email" class="form-label">Email</label>
+            <div class="row">
+                <div class="col-4 border border-dark">
+                    <label class="fw-bold">Email</label>
                 </div>
-                <div class="col-8">
+                <div class="col-8 border border-dark">
                     <label>{{ registration.email }}</label>
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <label for="Email" class="form-label">Total fees $</label>
+            <div class="row">
+                <div class="col-4 border border-dark">
+                    <label class="fw-bold">Total fees $</label>
                 </div>
-                <div class="col-8">
+                <div class="col-8 border border-dark">
                     <label>{{ registration.total_fees | number: '1.2-2' }}</label>
                 </div>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <label for="Email" class="form-label">Reference number</label>
+            <div class="row">
+                <div class="col-4 border border-dark">
+                    <label class="fw-bold">Reference number</label>
                 </div>
-                <div class="col-8">
+                <div class="col-8 border border-dark">
                     <label>{{ registration.refCode }}</label>
                 </div>
             </div>
@@ -61,10 +61,10 @@
             </div>
         </div>
         <div class="col-6">
-            <div class="row mt-2">
+            <div class="row">
                 <div class="col">
-                    <table class="table">
-                        <thead>
+                    <table class="table table-hover">
+                        <thead class="table-light">
                             <th width="10%">#</th>
                             <th width="30%">Classification</th>
                             <th width="30%">Code</th>
@@ -78,6 +78,14 @@
                                 <td>{{ event.registration_fees | number: '1.2-2' }}</td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td class="fw-bold text-end">Total fees $</td>
+                                <td>{{ registration.total_fees | number: '1.2-2' }}</td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
