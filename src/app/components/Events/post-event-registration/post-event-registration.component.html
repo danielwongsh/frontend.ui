@@ -1,0 +1,86 @@
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div *ngIf="event">
+            <h1 class="mb-3">{{ event.name }}</h1>
+        </div>
+    </div>
+    <div class="row gx-5 mt-2">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-4">
+                    <label for="Name" class="form-label">Name</label>
+                </div>
+                <div class="col-8">
+                    <label>{{ registration.name }}</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4">
+                    <label for="Contact" class="form-label">Contact</label>
+                </div>
+                <div class="col-8">
+                    <label>{{ registration.contact }}</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4">
+                    <label for="Country" class="form-label">Country</label>
+                </div>
+                <div class="col-8">
+                    <label>{{ registration.country }}</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4">
+                    <label for="Email" class="form-label">Email</label>
+                </div>
+                <div class="col-8">
+                    <label>{{ registration.email }}</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4">
+                    <label for="Email" class="form-label">Total fees $</label>
+                </div>
+                <div class="col-8">
+                    <label>{{ registration.total_fees | number: '1.2-2' }}</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4">
+                    <label for="Email" class="form-label">Reference number</label>
+                </div>
+                <div class="col-8">
+                    <label>{{ registration.refCode }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img [src]="paynow">
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row mt-2">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <th width="10%">#</th>
+                            <th width="30%">Classification</th>
+                            <th width="30%">Code</th>
+                            <th width="30%">Fees $</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let r of registration.fishRegistration; let i = index">
+                                <th>{{ i + 1 }}</th>
+                                <td>{{ r.classification }}</td>
+                                <td>{{ r.id }}</td>
+                                <td>{{ event.registration_fees | number: '1.2-2' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
