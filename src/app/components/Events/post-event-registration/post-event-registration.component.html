@@ -51,12 +51,19 @@
                     <label class="fw-bold">Reference number</label>
                 </div>
                 <div class="col-8 border border-dark">
-                    <label>{{ registration.refCode }}</label>
+                    <label class="fw-bold">{{ registration.refCode }}</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <img [src]="paynow">
+            <div class="row mt-4 justify-content-center">
+                <div class="col-9">
+                    <div class="alert alert-primary" role="alert">
+                        You may use below QR to make the payment <b>OR</b> make the payment manually by key in above <b>reference number</b>.
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2 justify-content-center">
+                <div class="col-6">
+                    <img [src]="paynow" title="Scan to pay" width="250px" height="250px">
                 </div>
             </div>
         </div>

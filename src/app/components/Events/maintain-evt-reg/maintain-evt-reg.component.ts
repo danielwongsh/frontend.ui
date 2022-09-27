@@ -10,6 +10,7 @@ import { EventsService } from 'src/app/services/events.service';
 export class MaintainEvtRegComponent implements OnInit {
 
   searchParm = "";
+  tempSearchParm = "";
 
   urList: any[] = []
 
@@ -19,7 +20,21 @@ export class MaintainEvtRegComponent implements OnInit {
   }
 
   search() {
+    this.tempSearchParm = this.searchParm;
     this.eventsService.searchUserRegistration(this.searchParm).subscribe({
+      next: (response) => {
+        this.urList = response.urList;
+      }
+    })
+  }
+
+  updatePayment(evt_id: string, ref_code: string) {
+    const req = {
+      id: evt_id,
+      ref_code: ref_code,
+      searchParm: this.tempSearchParm
+    }
+    this.eventsService.updatePayment(req).subscribe({
       next: (response) => {
         this.urList = response.urList;
       }

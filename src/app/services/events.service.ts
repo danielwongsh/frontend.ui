@@ -59,4 +59,10 @@ export class EventsService extends IService {
     headers = this.createAuthHeader(headers);
     return this.http.get<any>(this.baseApiUrl + '/api/events/searchuserregistration/' + searchParm, { headers: headers })
   }
+
+  updatePayment(req: any): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = this.createAuthHeader(headers);
+    return this.http.post<any>(this.baseApiUrl + '/api/events/updatepayment', req, { headers: headers })
+  }
 }

@@ -18,7 +18,7 @@
                 <th>Email</th>
                 <th>Contact</th>
                 <th>Reference</th>
-                <th>Fees</th>
+                <th>Fees $</th>
                 <th>Status</th>
                 <th style="width: 10%">Action</th>
             </tr>
@@ -35,8 +35,8 @@
                 <td>{{ ur.ref_code }}</td>
                 <td>{{ ur.total_fees | number: '1.2-2' }}</td>
                 <td [class.text-danger]="ur.status == 'UP'" [class.text-success]="ur.status == 'P'">{{ ur.status }}</td>
-                <td>
-                    <a class="btn btn-primary">Registration</a>
+                <td *ngIf="ur.status == 'UP'">
+                    <a class="btn btn-primary" (click)="updatePayment(ur.event_id, ur.ref_code)">PAID</a>
                 </td>
             </tr>
         </tbody>
