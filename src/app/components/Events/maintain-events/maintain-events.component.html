@@ -17,7 +17,6 @@
                 <th style="width: 5%">#</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Fees $</th>
                 <th style="width: 20%">Action</th>
             </tr>
         </thead>
@@ -29,7 +28,6 @@
                 <td>{{ i + 1 }}</td>
                 <td>{{ event.name }}</td>
                 <td>{{ event.description }}</td>
-                <td>{{ event.registration_fees | number: '1.2-2' }}</td>
                 <td>
                     <a class="btn btn-primary" [routerLink]="['/event-registration', event.id]">Registration</a>
                     <a class="btn btn-danger mx-1" (click)="deleteEvent(event)"><i class="bi bi-x"></i></a>

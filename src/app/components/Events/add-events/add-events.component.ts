@@ -14,7 +14,15 @@ export class AddEventsComponent implements OnInit {
     id: "",
     name: "",
     description: "",
-    registration_fees: 0.00
+    venue: '',
+    show_host: '',
+    show_chair: '',
+    show_type: '',
+    show_date_start: new Date(),
+    show_date_end: new Date(),
+    show_head_judge: '',
+    show_judges: '',
+    show_judge_apprentices: ''
   };
   constructor(private eventsService: EventsService, private router: Router) { }
 

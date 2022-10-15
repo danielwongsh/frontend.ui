@@ -29,7 +29,15 @@ export class EventRegistrationComponent implements OnInit {
     id: "",
     name: "",
     description: "",
-    registration_fees: 0.00
+    venue: '',
+    show_host: '',
+    show_chair: '',
+    show_type: '',
+    show_date_start: new Date(),
+    show_date_end: new Date(),
+    show_head_judge: '',
+    show_judges: '',
+    show_judge_apprentices: ''
   }
 
   countries = [{
@@ -79,8 +87,8 @@ export class EventRegistrationComponent implements OnInit {
       let fishRegistration = {
         classification: this.addFishReg.classification,
         quantity: this.addFishReg.quantity,
-        fees: this.event.registration_fees,
-        total: this.event.registration_fees * this.addFishReg.quantity
+        fees: /*this.event.registration_fees*/ 15,
+        total: /*this.event.registration_fees*/ 15 * this.addFishReg.quantity
       };
       this.registration.fishRegistration.push(fishRegistration);
     }
@@ -100,7 +108,7 @@ export class EventRegistrationComponent implements OnInit {
   updateFishRegistration(item: any, qty: number) {
     let index = this.registration.fishRegistration.indexOf(item);
     item.quantity += qty;
-    item.total = this.event.registration_fees * item.quantity;
+    item.total = /*this.event.registration_fees*/ 15 * item.quantity;
     this.registration.fishRegistration[index] = item;
   }
 
