@@ -37,7 +37,8 @@ export class EventRegistrationComponent implements OnInit {
     show_date_end: new Date(),
     show_head_judge: '',
     show_judges: '',
-    show_judge_apprentices: ''
+    show_judge_apprentices: '',
+    fish_classifications: []
   }
 
   countries = [{
