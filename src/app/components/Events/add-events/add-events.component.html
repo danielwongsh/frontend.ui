@@ -21,42 +21,42 @@
                 <div class="mt-2">
                     <label for="venue" class="form-label">Venue</label>
                     <input type="text" id="venue" name="venue" class="form-control" [(ngModel)]="event.venue" #name="ngModel"/>
-                </div>   
+                </div>
                 <div class="mt-2">
                     <label for="show_host" class="form-label">Show Host</label>
                     <input type="text" id="show_host" name="show_host" class="form-control" [(ngModel)]="event.show_host" #name="ngModel"/>
-                </div>      
+                </div>
                 <div class="mt-2">
                     <label for="show_chair" class="form-label">Show Chair</label>
                     <input type="text" id="show_chair" name="show_chair" class="form-control" [(ngModel)]="event.show_chair" #name="ngModel"/>
-                </div>      
+                </div>
                 <div class="mt-2">
                     <label for="show_type" class="form-label">Show Type</label>
                     <input type="text" id="show_type" name="show_type" class="form-control" [(ngModel)]="event.show_type" #name="ngModel"/>
-                </div>      
+                </div>
                 <div class="mt-2">
                     <label for="show_date_start" class="form-label">Start Date</label>
                     <input type="date" id="show_date_start" name="show_date_start" class="form-control" [(ngModel)]="event.show_date_start" #name="ngModel"/>
-                </div>      
+                </div>
                 <div class="mt-2">
                     <label for="show_date_end" class="form-label">End Date</label>
                     <input type="date" id="show_date_end" name="show_date_end" class="form-control" [(ngModel)]="event.show_date_end" #name="ngModel"/>
-                </div>      
+                </div>
                 <div class="mt-2">
                     <label for="show_head_judge" class="form-label">Head Judge</label>
                     <input type="text" id="show_head_judge" name="show_head_judge" class="form-control" [(ngModel)]="event.show_head_judge" #name="ngModel"/>
-                </div>      
+                </div>
                 <div class="mt-2">
                     <label for="show_judges" class="form-label">Judges</label>
                     <input type="text" id="show_judges" name="show_judges" class="form-control" [(ngModel)]="event.show_judges" #name="ngModel"/>
-                </div>      
+                </div>
                 <div class="mt-2">
                     <label for="show_judge_apprentices" class="form-label">Apprentices</label>
                     <input type="text" id="show_judge_apprentices" name="show_judge_apprentices" class="form-control" [(ngModel)]="event.show_judge_apprentices" #name="ngModel"/>
-                </div>   
+                </div>
                 <div class="mt-3">
-                    <a routerLink="/maintain-events" class="btn btn-outline-primary"><i class="bi bi-arrow-left-circle"></i> Back</a>
-                    <a (click)="addEvent()" class="btn btn-primary mx-2">Submit</a>
+                    <a routerLink="/maintain-events" class="btn btn-outline-primary mx-2 mt-1"><i class="bi bi-arrow-left-circle"></i> Back</a>
+                    <a (click)="addEvent()" class="btn btn-primary mx-2 mt-1">Submit</a>
                 </div>
             </form>
         </div>
