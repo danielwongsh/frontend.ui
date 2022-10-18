@@ -11,4 +11,5 @@ export interface Events {
     show_head_judge: string;
     show_judges: string;
     show_judge_apprentices: string;
+    fish_classifications: any[]
 }
