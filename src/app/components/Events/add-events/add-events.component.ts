@@ -25,6 +25,14 @@ export class AddEventsComponent implements OnInit {
     show_judge_apprentices: '',
     fish_classifications: []
   };
+
+  fish_classification = {
+    fish_class: "",
+    fish_subclass: "",
+    description: "",
+    fee: 0
+  }
+
   constructor(private eventsService: EventsService, private router: Router) { }
 
   ngOnInit(): void {
@@ -40,5 +48,31 @@ export class AddEventsComponent implements OnInit {
         console.log(response);
       }
     })
+  }
+
+  addClassification() {
+    if (!this.fish_classification.fish_class || !this.fish_classification.fish_subclass || !this.fish_classification.description || this.fish_classification.fee == 0){
+      return;
+    }
+
+    let found = this.event.fish_classifications.find((s) => s.fish_class.includes(this.fish_classification.fish_class) && s.fish_subclass.includes(this.fish_classification.fish_subclass));
+    if (found) {
+      found.fish_class = this.fish_classification.fish_class;
+      found.fish_subclass = this.fish_classification.fish_subclass;
+      found.description = this.fish_classification.description;
+      found.fee = this.fish_classification.fee;
+    } else {
+      let fish_classification_toadd = {
+        fish_class: this.fish_classification.fish_class,
+        fish_subclass: this.fish_classification.fish_subclass,
+        description: this.fish_classification.description,
+        fee: this.fish_classification.fee
+      };
+      this.event.fish_classifications.push(fish_classification_toadd);
+    }
+  }
+
+  deleteClassification(i: number) {
+    this.event.fish_classifications.splice(i, 1);
   }
 }
