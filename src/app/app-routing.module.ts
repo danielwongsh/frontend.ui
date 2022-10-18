@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './components/Auth/login/login.component';
 import { AddEventsComponent } from './components/Events/add-events/add-events.component';
 import { EventRegistrationComponent } from './components/Events/event-registration/event-registration.component';
 import { MaintainEventsComponent } from './components/Events/maintain-events/maintain-events.component';
@@ -9,7 +10,7 @@ import { PostEventRegistrationComponent } from './components/Events/post-event-r
 const routes: Routes = [
   {
     path: '',
-    component: MaintainEventsComponent
+    component: LoginComponent
   },
   {
     path: 'maintain-events',

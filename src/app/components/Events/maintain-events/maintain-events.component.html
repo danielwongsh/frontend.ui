@@ -1,38 +1,36 @@
-<div class="container my-5">
-    <div class="row align-items-center justify-content-end">
-        <div class="col-6">
-            <h1 class="mb-3">Maintain events</h1>
-        </div>
-        <div class="col-6">
-            <div class="row justify-content-end">
-                <div class="col-2">
-                    <a class="btn btn-primary" routerLink="/maintain-events/add">New <i class="bi bi-plus"></i></a>
-                </div>
+<div class="row align-items-center justify-content-end">
+    <div class="col-6">
+        <h1 class="mb-3">Maintain events</h1>
+    </div>
+    <div class="col-6">
+        <div class="row justify-content-end">
+            <div class="col-2">
+                <a class="btn btn-primary" routerLink="/maintain-events/add">New <i class="bi bi-plus"></i></a>
             </div>
         </div>
     </div>
-    <table class="table table-hover">
-        <thead class="table-light">
-            <tr>
-                <th style="width: 5%">#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th style="width: 20%">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngIf="!events || events.length == 0">
-                <td colspan="5">No record found</td>
-            </tr>
-            <tr *ngFor="let event of events; let i = index">
-                <td>{{ i + 1 }}</td>
-                <td>{{ event.name }}</td>
-                <td>{{ event.description }}</td>
-                <td>
-                    <a class="btn btn-primary" [routerLink]="['/event-registration', event.id]">Registration</a>
-                    <a class="btn btn-danger mx-1" (click)="deleteEvent(event)"><i class="bi bi-x"></i></a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
+<table class="table table-hover">
+    <thead class="table-light">
+        <tr>
+            <th style="width: 5%">#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th style="width: 20%">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="!events || events.length == 0">
+            <td colspan="5">No record found</td>
+        </tr>
+        <tr *ngFor="let event of events; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ event.name }}</td>
+            <td>{{ event.description }}</td>
+            <td>
+                <a class="btn btn-primary" [routerLink]="['/event-registration', event.id]">Registration</a>
+                <a class="btn btn-danger mx-1" (click)="deleteEvent(event)"><i class="bi bi-x"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>

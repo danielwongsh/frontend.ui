@@ -13,6 +13,7 @@ import { EventRegistrationComponent } from './components/Events/event-registrati
 import { TwoDigitDecimaNumberDirective } from './directives/common-directives';
 import { PostEventRegistrationComponent } from './components/Events/post-event-registration/post-event-registration.component';
 import { MaintainEvtRegComponent } from './components/Events/maintain-evt-reg/maintain-evt-reg.component';
+import { LoginComponent } from './components/Auth/login/login.component';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -26,7 +27,8 @@ export function tokenGetter() {
     AddEventsComponent,
     EventRegistrationComponent,
     PostEventRegistrationComponent,
-    MaintainEvtRegComponent
+    MaintainEvtRegComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
