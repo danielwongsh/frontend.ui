@@ -23,8 +23,21 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.user).subscribe({
       next: (response) => {
-        //this.event = response.events;
-        this.router.navigate(['/maintain-events']);
+        console.log(response)
+        localStorage.setItem('authToken', response.jwt)
+        //this.router.navigate(['/maintain-events']);
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    })
+  }
+
+  refreshToken() {
+    this.authService.refreshToken().subscribe({
+      next: (response) => {
+        console.log(response)
+        localStorage.setItem('authToken', response.jwt)
       },
       error: (response) => {
         console.log(response);
