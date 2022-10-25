@@ -69,6 +69,13 @@ export class AddEventsComponent implements OnInit {
         fee: this.fish_classification.fee
       };
       this.event.fish_classifications.push(fish_classification_toadd);
+      this.event.fish_classifications.sort((a, b)=> {
+        if (a.fish_class === b.fish_class){
+          return a.fish_subclass < b.fish_subclass ? -1 : 1
+        } else {
+          return a.fish_class < b.fish_class ? -1 : 1
+        }
+      })
     }
   }
 

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Events } from 'src/app/models/event.model';
 import { UserRegistration } from 'src/app/models/userRegistration.model';
 import { EventsService } from 'src/app/services/events.service';
+import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
   selector: 'app-post-event-registration',
@@ -42,7 +43,7 @@ export class PostEventRegistrationComponent implements OnInit {
 
   paynow: string = "";
 
-  constructor(private eventsService: EventsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private registrationService: RegistrationService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
@@ -50,7 +51,7 @@ export class PostEventRegistrationComponent implements OnInit {
         const id = parms.get('id')
 
         if (id) {
-          this.eventsService.getUserRegistration(id).subscribe({
+          this.registrationService.getUserRegistration(id).subscribe({
             next: (response) => {
               this.registration = response.userRegistration
               this.registration.fishRegistration = response.fishRegistration

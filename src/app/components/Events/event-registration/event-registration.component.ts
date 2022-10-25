@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Events } from 'src/app/models/event.model';
 import { UserRegistration } from 'src/app/models/userRegistration.model';
-import { EventsService } from 'src/app/services/events.service';
+import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
   selector: 'app-event-registration',
@@ -46,16 +46,18 @@ export class EventRegistrationComponent implements OnInit {
     country: ""
   }]
 
-  classifications = []
+  classifications:any[] = []
+  classi: any = ""
 
   addFishReg = {
     classification: "",
+    fee: 0,
     quantity: 0
   }
 
   registrationOutput = {}
 
-  constructor(private eventsService: EventsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private registrationService: RegistrationService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
@@ -64,7 +66,7 @@ export class EventRegistrationComponent implements OnInit {
 
         if (id) {
           this.registration.eventId = id;
-          this.eventsService.getEvent(id).subscribe({
+          this.registrationService.getEvent(id).subscribe({
             next: (response) => {
               this.event = response.event
               this.countries = response.countries
@@ -88,15 +90,18 @@ export class EventRegistrationComponent implements OnInit {
       let fishRegistration = {
         classification: this.addFishReg.classification,
         quantity: this.addFishReg.quantity,
-        fees: /*this.event.registration_fees*/ 15,
-        total: /*this.event.registration_fees*/ 15 * this.addFishReg.quantity
+        fees: this.addFishReg.fee,
+        total: this.addFishReg.fee * this.addFishReg.quantity
       };
       this.registration.fishRegistration.push(fishRegistration);
+      this.registration.fishRegistration.sort((a, b)=> {
+        return a.classification < b.classification ? -1 : 1
+      })
     }
   }
 
   register() {
-    this.eventsService.registerEvent(this.registration).subscribe({
+    this.registrationService.registerEvent(this.registration).subscribe({
       next: (response) => {
         this.router.navigate(['/event-registration/post-event-registration/' + response.userRegistration.id]);
       },
@@ -109,11 +114,16 @@ export class EventRegistrationComponent implements OnInit {
   updateFishRegistration(item: any, qty: number) {
     let index = this.registration.fishRegistration.indexOf(item);
     item.quantity += qty;
-    item.total = /*this.event.registration_fees*/ 15 * item.quantity;
+    item.total = this.addFishReg.fee * item.quantity;
     this.registration.fishRegistration[index] = item;
   }
 
   deleteFishRegistration(i: number){
     this.registration.fishRegistration.splice(i, 1);
+  }
+
+  classificationChange() {
+    this.addFishReg.classification = this.classi.fish_subclass;
+    this.addFishReg.fee = this.classi.fee;
   }
 }

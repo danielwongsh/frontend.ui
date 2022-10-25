@@ -36,24 +36,6 @@ export class EventsService extends IService {
     return this.http.post<any>(this.baseApiUrl + '/api/events/addevent', event, { headers: headers, withCredentials: true })
   }
 
-  getEvent(id: string): Observable<any> {
-    let headers = new HttpHeaders();
-    headers = this.createAuthHeader(headers);
-    return this.http.get<any>(this.baseApiUrl + '/api/UserRegistration/getevent/' + id, { headers: headers, withCredentials: true })
-  }
-
-  registerEvent(userRegistration: UserRegistration): Observable<any> {
-    let headers = new HttpHeaders();
-    headers = this.createAuthHeader(headers);
-    return this.http.post<any>(this.baseApiUrl + '/api/UserRegistration/userregistrationevent', userRegistration, { headers: headers, withCredentials: true })
-  }
-
-  getUserRegistration(id: string): Observable<any> {
-    let headers = new HttpHeaders();
-    headers = this.createAuthHeader(headers);
-    return this.http.get<any>(this.baseApiUrl + '/api/UserRegistration/getuserregistration/' + id, { headers: headers, withCredentials: true })
-  }
-
   searchUserRegistration(searchParm: string): Observable<any> {
     let headers = new HttpHeaders();
     headers = this.createAuthHeader(headers);

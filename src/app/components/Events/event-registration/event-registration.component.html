@@ -22,7 +22,7 @@
             </div>
             <div class="mt-2">
                 <label for="Country" class="form-label">Country</label>
-                <select [(ngModel)]="registration.country" id="Country" name="Country" class="form-select" #Country="ngModel" required>
+                <select [(ngModel)]="registration.country" id="Country" name="Country" class="form-control form-select" #Country="ngModel" required>
                     <option value="">-- Please select --</option>
                     <option *ngFor="let country of countries" value="{{ country.countryCode }}">{{ country.country }}</option>
                 </select>
@@ -51,9 +51,9 @@
         <div class="row mt-2">
             <div class="col-4">
                 <label for="classification" class="form-label">Classification</label>
-                <select [(ngModel)]="addFishReg.classification" id="classification" name="classification" class="form-select" #classification="ngModel" required>
+                <select [(ngModel)]="classi" id="classification" name="classification" class="form-control form-select" #classification="ngModel" (change)="classificationChange()" required>
                     <option value="">-- Please select --</option>
-                    <option *ngFor="let c of classifications" value="{{ c }}">{{ c }}</option>
+                    <option *ngFor="let c of classifications" [ngValue]="c">{{ c.fish_subclass + ' (' + c.description + ')' }}</option>
                 </select>
                 <div *ngIf="classification.invalid && (classification.dirty)" class="alert alert-danger">
                     <div *ngIf="classification.errors?.['required']">
@@ -61,20 +61,23 @@
                     </div>
                 </div>
             </div>
+            <div class="col-1">
+                <label for="fee" class="form-label">Fee</label>
+                <div>
+                    {{ addFishReg.fee | number: '1.2-2' }}
+                </div>
+            </div>
             <div class="col-4">
                 <label for="quantity" class="form-label">Quantity</label>
                 <input type="number" id="quantity" name="quantity" class="form-control" min="0.00" [(ngModel)]="addFishReg.quantity" #quantity="ngModel" required/>
                 <div *ngIf="quantity.invalid && (quantity.dirty)" class="alert alert-danger">
                     <div *ngIf="quantity.errors?.['required']">
-                        Please fill in quantity
-                    </div>
-                    <div *ngIf="quantity.errors?.['min']">
-                        Please fill in larger than 0
+                        Please fill in
                     </div>
                 </div>
             </div>
-            <div class="col-2 align-self-end">
-                <a class="btn btn-outline-primary" (click)="addClass()"><i class="bi bi-plus-lg"></i></a>
+            <div class="col-1 align-self-end">
+                <a class="btn btn-primary" (click)="addClass()"><i class="bi bi-plus-lg"></i></a>
             </div>
         </div>
         <div class="row mt-2">
