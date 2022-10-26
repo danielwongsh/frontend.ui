@@ -81,7 +81,7 @@
                             <th>{{ i + 1 }}</th>
                             <td>{{ r.classification }}</td>
                             <td>{{ r.id }}</td>
-                            <td>{{ 15 | number: '1.2-2' }}</td>
+                            <td>{{ r.unit_fees | number: '1.2-2' }}</td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -89,7 +89,7 @@
                             <td></td>
                             <td></td>
                             <td class="fw-bold text-end">Total fees $</td>
-                            <td>{{ 15 | number: '1.2-2' }}</td>
+                            <td>{{ registration.total_fees| number: '1.2-2' }}</td>
                         </tr>
                     </tfoot>
                 </table>
