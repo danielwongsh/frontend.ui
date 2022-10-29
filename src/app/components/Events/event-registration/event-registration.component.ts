@@ -50,6 +50,7 @@ export class EventRegistrationComponent implements OnInit {
   classi: any = ""
 
   addFishReg = {
+    mainclassification: "",
     classification: "",
     fee: 0,
     quantity: 0
@@ -83,11 +84,12 @@ export class EventRegistrationComponent implements OnInit {
       return;
     }
 
-    let found = this.registration.fishRegistration.find((s) => s.classification.includes(this.addFishReg.classification));
+    let found = this.registration.fishRegistration.find((s) => s.mainclassification.includes(this.addFishReg.mainclassification) && s.classification.includes(this.addFishReg.classification));
     if (found) {
       this.updateFishRegistration(found, this.addFishReg.quantity);
     } else {
       let fishRegistration = {
+        mainclassification: this.addFishReg.mainclassification,
         classification: this.addFishReg.classification,
         quantity: this.addFishReg.quantity,
         fees: this.addFishReg.fee,
@@ -123,6 +125,7 @@ export class EventRegistrationComponent implements OnInit {
   }
 
   classificationChange() {
+    this.addFishReg.mainclassification = this.classi.fish_class;
     this.addFishReg.classification = this.classi.fish_subclass;
     this.addFishReg.fee = this.classi.fee;
   }
