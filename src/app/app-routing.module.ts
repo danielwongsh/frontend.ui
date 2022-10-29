@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/Auth/login/login.component';
 import { AddEventsComponent } from './components/Events/add-events/add-events.component';
+import { EditRegistrationComponent } from './components/Events/edit-registration/edit-registration.component';
 import { EventRegistrationComponent } from './components/Events/event-registration/event-registration.component';
 import { MaintainEventsComponent } from './components/Events/maintain-events/maintain-events.component';
 import { MaintainEvtRegComponent } from './components/Events/maintain-evt-reg/maintain-evt-reg.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'maintain-event-registration',
     component: MaintainEvtRegComponent
+  },
+  {
+    path: 'edit-registration/:id',
+    component: EditRegistrationComponent
   }
 ];
 
