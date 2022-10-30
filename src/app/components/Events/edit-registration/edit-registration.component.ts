@@ -20,7 +20,8 @@ export class EditRegistrationComponent implements OnInit {
     refCode: "",
     total_fees: 0.00,
     status: "",
-    eventId: "",
+    statusDesc: "",
+    EventID: "",
     fishRegistration: [],
   }
 
@@ -45,24 +46,66 @@ export class EditRegistrationComponent implements OnInit {
     country: ""
   }]
 
-  constructor(private registrationService: RegistrationService, private route: ActivatedRoute, private router: Router) { }
+  classifications:any[] = []
+
+  searchParm = "";
+
+  constructor(private registrationService: RegistrationService, private eventsService: EventsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
       next: (parms) => {
         const id = parms.get('id')
+        const searchParm = parms.get('searchParm')
 
         if (id) {
           this.registrationService.getUserRegistration(id).subscribe({
             next: (response) => {
+              this.countries = response.countries
               this.registration = response.userRegistration
               this.registration.fishRegistration = response.fishRegistration
               this.event = response.event
+              this.classifications = response.classifications
             }
           })
+        }
+
+        if (searchParm) {
+          this.searchParm = searchParm;
         }
       }
     })
   }
 
+  update() {
+    this.registrationService.updateUserRegisterEvent(this.registration).subscribe({
+      next: (response) => {
+        // this.router.navigate(['/maintain-event-registration']);
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    })
+  }
+
+  updatePayment(evt_id: string, ref_code: string) {
+    const req = {
+      id: evt_id,
+      ref_code: ref_code
+    }
+    this.eventsService.updatePayment(req).subscribe({
+      next: (response) => {
+        this.registration = response.userRegistration
+        this.registration.fishRegistration = response.fishRegistration
+      }
+    })
+  }
+
+  classificationChange(r: any) {
+    let splitStr = r.mixclass.split("|");
+    if (splitStr && splitStr.length == 2){
+      r.mainclassification = splitStr[0];
+      r.classification = splitStr[1];
+    }
+  }
 }

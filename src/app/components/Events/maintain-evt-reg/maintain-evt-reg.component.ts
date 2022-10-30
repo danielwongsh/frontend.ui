@@ -16,7 +16,17 @@ export class MaintainEvtRegComponent implements OnInit {
 
   constructor(private eventsService: EventsService, private route: ActivatedRoute, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {this.route.paramMap.subscribe({
+    next: (parms) => {
+      const searchParm = parms.get('searchParm')
+
+      if (searchParm) {
+        this.tempSearchParm = searchParm;
+        this.searchParm = searchParm;
+        this.search();
+      }
+    }
+  })
   }
 
   search() {

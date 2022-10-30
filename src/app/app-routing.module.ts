@@ -34,7 +34,15 @@ const routes: Routes = [
     component: MaintainEvtRegComponent
   },
   {
+    path: 'maintain-event-registration/:searchParm',
+    component: MaintainEvtRegComponent
+  },
+  {
     path: 'edit-registration/:id',
+    component: EditRegistrationComponent
+  },
+  {
+    path: 'edit-registration/:id/:searchParm',
     component: EditRegistrationComponent
   }
 ];

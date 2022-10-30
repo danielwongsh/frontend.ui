@@ -28,14 +28,14 @@
         </tr>
         <tr *ngFor="let ur of urList">
             <td>{{ ur.event_name }}</td>
-            <td><a [routerLink]="['/edit-registration', ur.ur_id]">{{ ur.name }}</a></td>
+            <td><a [routerLink]="['/edit-registration', ur.ur_id, tempSearchParm]">{{ ur.name }}</a></td>
             <td>{{ ur.email }}</td>
             <td>{{ ur.contact }}</td>
             <td>{{ ur.ref_code }}</td>
             <td>{{ ur.total_fees | number: '1.2-2' }}</td>
             <td [class.text-danger]="ur.status == 'UP'" [class.text-success]="ur.status == 'P'">{{ ur.statusDesc }}</td>
             <td>
-                <a *ngIf="ur.status == 'UP'" class="btn btn-primary" (click)="updatePayment(ur.event_id, ur.ref_code)">PAID</a>
+                <a *ngIf="ur.status == 'UP'" class="btn btn-primary" (click)="updatePayment(ur.event_id, ur.ref_code)">Paid</a>
             </td>
         </tr>
     </tbody>

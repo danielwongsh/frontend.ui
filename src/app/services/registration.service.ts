@@ -32,4 +32,10 @@ export class RegistrationService extends IService {
     headers = this.createAuthHeader(headers);
     return this.http.get<any>(this.baseApiUrl + '/api/UserRegistration/getuserregistration/' + id, { headers: headers, withCredentials: true })
   }
+
+  updateUserRegisterEvent(userRegistration: UserRegistration): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = this.createAuthHeader(headers);
+    return this.http.post<any>(this.baseApiUrl + '/api/UserRegistration/updateuserregistrationevent', userRegistration, { headers: headers, withCredentials: true })
+  }
 }

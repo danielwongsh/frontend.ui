@@ -21,7 +21,8 @@ export class PostEventRegistrationComponent implements OnInit {
     refCode: "",
     total_fees: 0.00,
     status: "",
-    eventId: "",
+    statusDesc: "",
+    EventID: "",
     fishRegistration: [],
   }
 

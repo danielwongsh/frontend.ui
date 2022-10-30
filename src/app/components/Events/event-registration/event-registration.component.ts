@@ -21,7 +21,8 @@ export class EventRegistrationComponent implements OnInit {
     refCode: "",
     total_fees: 0.00,
     status: "",
-    eventId: "",
+    statusDesc: "",
+    EventID: "",
     fishRegistration: [],
   }
 
@@ -47,6 +48,7 @@ export class EventRegistrationComponent implements OnInit {
   }]
 
   classifications:any[] = []
+  
   classi: any = ""
 
   addFishReg = {
@@ -66,7 +68,7 @@ export class EventRegistrationComponent implements OnInit {
         const id = parms.get('id')
 
         if (id) {
-          this.registration.eventId = id;
+          this.registration.EventID = id;
           this.registrationService.getEvent(id).subscribe({
             next: (response) => {
               this.event = response.event

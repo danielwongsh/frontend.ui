@@ -7,6 +7,7 @@ export interface UserRegistration {
     refCode: string;
     total_fees: number;
     status: string;
-    eventId: string;
+    statusDesc: string;
+    EventID: string;
     fishRegistration: any[];
 }
