@@ -15,27 +15,27 @@ export class RegistrationService extends IService {
     super();
   }
 
-  getEvent(id: string): Observable<any> {
+  GetUserRegistrationEvent(id: string): Observable<any> {
     let headers = new HttpHeaders();
     headers = this.createAuthHeader(headers);
-    return this.http.get<any>(this.baseApiUrl + '/api/UserRegistration/getevent/' + id, { headers: headers, withCredentials: true })
+    return this.http.get<any>(this.baseApiUrl + '/api/UserRegistration/GetUserRegistrationEvent/' + id, { headers: headers, withCredentials: true })
   }
 
   registerEvent(userRegistration: UserRegistration): Observable<any> {
     let headers = new HttpHeaders();
     headers = this.createAuthHeader(headers);
-    return this.http.post<any>(this.baseApiUrl + '/api/UserRegistration/userregistrationevent', userRegistration, { headers: headers, withCredentials: true })
+    return this.http.post<any>(this.baseApiUrl + '/api/UserRegistration/UserRegistrationEvent', userRegistration, { headers: headers, withCredentials: true })
   }
 
   getUserRegistration(id: string): Observable<any> {
     let headers = new HttpHeaders();
     headers = this.createAuthHeader(headers);
-    return this.http.get<any>(this.baseApiUrl + '/api/UserRegistration/getuserregistration/' + id, { headers: headers, withCredentials: true })
+    return this.http.get<any>(this.baseApiUrl + '/api/UserRegistration/GetUserRegistration/' + id, { headers: headers, withCredentials: true })
   }
 
   updateUserRegisterEvent(userRegistration: UserRegistration): Observable<any> {
     let headers = new HttpHeaders();
     headers = this.createAuthHeader(headers);
-    return this.http.post<any>(this.baseApiUrl + '/api/UserRegistration/updateuserregistrationevent', userRegistration, { headers: headers, withCredentials: true })
+    return this.http.post<any>(this.baseApiUrl + '/api/UserRegistration/UpdateUserRegistrationEvent', userRegistration, { headers: headers, withCredentials: true })
   }
 }

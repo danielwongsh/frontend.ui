@@ -69,7 +69,7 @@ export class EventRegistrationComponent implements OnInit {
 
         if (id) {
           this.registration.EventID = id;
-          this.registrationService.getEvent(id).subscribe({
+          this.registrationService.GetUserRegistrationEvent(id).subscribe({
             next: (response) => {
               this.event = response.event
               this.countries = response.countries

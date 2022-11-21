@@ -4,6 +4,7 @@ import { LoginComponent } from './components/Auth/login/login.component';
 import { AddEventsComponent } from './components/Events/add-events/add-events.component';
 import { EditRegistrationComponent } from './components/Events/edit-registration/edit-registration.component';
 import { EventRegistrationComponent } from './components/Events/event-registration/event-registration.component';
+import { EventResultComponent } from './components/Events/event-result/event-result.component';
 import { MaintainEventsComponent } from './components/Events/maintain-events/maintain-events.component';
 import { MaintainEvtRegComponent } from './components/Events/maintain-evt-reg/maintain-evt-reg.component';
 import { PostEventRegistrationComponent } from './components/Events/post-event-registration/post-event-registration.component';
@@ -44,6 +45,14 @@ const routes: Routes = [
   {
     path: 'edit-registration/:id/:searchParm',
     component: EditRegistrationComponent
+  },
+  {
+    path: 'event-result/:id',
+    component: EventResultComponent
+  },
+  {
+    path: 'event-result/:id/:searchParm',
+    component: EventResultComponent
   }
 ];
 

@@ -10,3 +10,11 @@
 table .btn {
     padding: 0.03rem 0.4rem;
 }
+
+.result-header{
+    background-color: rgba(246, 255, 144, 0.513);   
+}
+
+.result-footer{
+    background-color: rgba(144, 224, 255, 0.513);   
+}
