@@ -1,0 +1,231 @@
+<div class="row">
+    <div class="col">
+        <div class="row d-felx justify-content-center">
+            <div class="col-6">
+                <p class="h1 mb-1 text-center fw-bolder">{{ event.show_host }}</p>
+            </div>
+        </div>
+        <div class="row d-felx justify-content-center">
+            <div class="col-6">
+                <p class="h1 mt-1 text-center fw-bolder">{{ event.name }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row my-4">
+    <div class="col">
+        <div class="row d-felx justify-content-center">
+            <div class="col-6">
+                <p class="text-center fs-4 fw-bold">VENUE: {{ event.venue }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="row d-felx justify-content-center">
+            <div class="col-6">
+                <p class="text-center fs-3 fw-bold">SHOW RESULTS {{ thisYear }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 border border-dark">
+        <span class="fw-bold">SHOW HOST</span>
+    </div>
+    <div class="col-md-5 border border-dark border-start-0 border-end-0">
+        <span class="fw-bold">{{ event.show_host }}</span>
+    </div>
+    <div class="col-md-4 border border-dark border-start-0">
+        <span class="fw-bold">SHOW CHAIR: {{ event.show_chair }}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 border border-dark border-top-0">
+        <span class="fw-bold">SHOW TYPE: {{ event.show_type }}</span>
+    </div>
+    <div class="col-md-9 border border-dark border-start-0 border-top-0">
+        <span class="fw-bold">Date: {{ event.show_date_start | date:'dd MMMM yyyy' }} ~ {{ event.show_date_end | date:'dd MMMM yyyy' }}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 border border-dark border-top-0">
+        <span class="d-flex justify-content-end fw-bold">HEAD JUDGE</span>
+    </div>
+    <div class="col-md-9 border border-dark border-start-0 border-top-0">
+        <span class="fw-bold">{{ event.show_head_judge }}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 border border-dark border-top-0">
+        <span class="d-flex justify-content-end fw-bold">JUDGES</span>
+    </div>
+    <div class="col-md-9 border border-dark border-start-0 border-top-0">
+        <span class="fw-bold">{{ event.show_judges }}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 border border-dark border-top-0">
+        <span class="d-flex justify-content-end fw-bold">APPRENTICES</span>
+    </div>
+    <div class="col-md-9 border border-dark border-start-0 border-top-0">
+        <span class="fw-bold">{{ event.show_judge_apprentices }}</span>
+    </div>
+</div>
+
+<div class="row mt-3 d-felx justify-content-end">
+    <div class="col-md-1 border border-dark">
+        <span class="d-flex justify-content-center fw-bold">#</span>
+    </div>
+    <div class="col-md-3 border border-dark border-start-0">
+        <span class="fw-bold">WINNER'S NAME</span>
+    </div>
+    <div class="col-md-1 border border-dark border-start-0">
+        <span class="d-flex justify-content-center fw-bold">class</span>
+    </div>
+    <div class="col-md-3 border border-dark border-start-0">
+        <span class="fw-bold">WINNING CLASS</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 border border-dark border-end-0">
+        <span class="fs-1">BEST OF SHOW</span>
+    </div>
+    <div class="col-1 border border-dark border-top-0">
+        <input type="text" id="bestOfShow" name="bestOfShow" [(ngModel)]="result.best_of_show" class="form-control form-control-sm my-2" (keyup.enter)="getFishRegSeq(result, 'best_of_show', 'best_of_show_name', 'best_of_show_class', 'best_of_show_subclass')" (focusout)="getFishRegSeq(result, 'best_of_show', 'best_of_show_name', 'best_of_show_class', 'best_of_show_subclass')"/>
+    </div>
+    <div class="col-md-3 border border-dark border-start-0 border-top-0">
+        <span class="fw-bold">{{ result.best_of_show_name }}</span>
+    </div>
+    <div class="col-md-1 border border-dark border-start-0 border-top-0">
+        <span class="d-flex justify-content-center fw-bold">{{ result.best_of_show_class }}</span>
+    </div>
+    <div class="col-md-3 border border-dark border-start-0 border-top-0">
+        <span class="fw-bold">{{ result.best_of_show_subclass }}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 border border-dark border-end-0 border-top-0">
+        <span class="fs-1">BEST OF OPTIONAL</span>
+    </div>
+    <div class="col-1 border border-dark border-top-0">
+        <input type="text" id="bestOfOpt" name="bestOfOpt" [(ngModel)]="result.best_of_optional" class="form-control form-control-sm my-2" (keyup.enter)="getFishRegSeq(result, 'best_of_optional', 'best_of_optional_name', 'best_of_optional_class', 'best_of_optional_subclass')" (focusout)="getFishRegSeq(result, 'best_of_optional', 'best_of_optional_name', 'best_of_optional_class', 'best_of_optional_subclass')"/>
+    </div>
+    <div class="col-md-3 border border-dark border-start-0 border-top-0">
+        <span class="fw-bold">{{ result.best_of_optional_name }}</span>
+    </div>
+    <div class="col-md-1 border border-dark border-start-0 border-top-0">
+        <span class="d-flex justify-content-center fw-bold">{{ result.best_of_optional_class }}</span>
+    </div>
+    <div class="col-md-3 border border-dark border-start-0 border-top-0">
+        <span class="fw-bold">{{ result.best_of_optional_subclass }}</span>
+    </div>
+</div>
+
+<div *ngFor="let d of divisionsResult; let i = index">
+    <div class="row mt-3 result-header">
+        <div class="col-md-2 border border-dark">
+            <span>Division {{d.division}}</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0">
+            <span class="d-flex justify-content-center">#</span>
+        </div>
+        <div class="col-md-2 border border-dark border-start-0">
+            <span>NAME 1ST PLACE</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0">
+            <span class="d-flex justify-content-center">#</span>
+        </div>
+        <div class="col-md-2 border border-dark border-start-0">
+            <span>NAME 2ND PLACE</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0">
+            <span class="d-flex justify-content-center">#</span>
+        </div>
+        <div class="col-md-2 border border-dark border-start-0">
+            <span>NAME 3RD PLACE</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0">
+            <span>Entries</span> 
+        </div>
+    </div>
+    <div class="row" *ngFor="let subclass of d.subDivisions; let j = index">
+        <div class="col-md-2 border border-dark border-top-0">
+            <span>{{subclass.fish_subclass}}:{{subclass.description}}</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0 border-top-0">
+            <input type="text" id="class1st_{{subclass.fish_class}}_{{subclass.fish_subclass}}" name="class1st_{{subclass.fish_class}}_{{subclass.fish_subclass}}" [(ngModel)]="subclass.class1st" class="form-control form-control-sm my-2" (keyup.enter)="getFishRegSeq(subclass, 'class1st', 'class1st_name', '', '', subclass.fish_class, subclass.fish_subclass)"/>
+        </div>
+        <div class="col-md-2 border border-dark border-start-0 border-top-0 d-felx align-items-center">
+            <span>{{ subclass.class1st_name }}</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0 border-top-0">
+            <input type="text" id="class2nd_{{subclass.fish_class}}_{{subclass.fish_subclass}}" name="class2nd_{{subclass.fish_class}}_{{subclass.fish_subclass}}" [(ngModel)]="subclass.class2nd" class="form-control form-control-sm my-2" (keyup.enter)="getFishRegSeq(subclass, 'class2nd', 'class2nd_name', '', '', subclass.fish_class, subclass.fish_subclass)"/>
+        </div>
+        <div class="col-md-2 border border-dark border-start-0 border-top-0">
+            <span>{{ subclass.class2nd_name }}</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0 border-top-0">
+            <input type="text" id="class3rd_{{subclass.fish_class}}_{{subclass.fish_subclass}}" name="class3rd_{{subclass.fish_class}}_{{subclass.fish_subclass}}" [(ngModel)]="subclass.class3rd" class="form-control form-control-sm my-2" (keyup.enter)="getFishRegSeq(subclass, 'class3rd', 'class3rd_name', '', '', subclass.fish_class, subclass.fish_subclass)"/>
+        </div>
+        <div class="col-md-2 border border-dark border-start-0 border-top-0">
+            <span>{{ subclass.class3rd_name }}</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0 border-top-0">
+            <span>{{ subclass.entries }}</span>
+        </div>
+    </div>
+    <div class="row result-footer">
+        <div class="col-md-2 border border-dark border-top-0">
+            <span class="fs-4 fw-bold">BEST OF DIVISION {{ d.division }}</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0 border-top-0">
+            <div class="row">
+                <div class="col border-bottom border-dark">
+                    <span class="d-flex justify-content-center">#</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" id="bestOf_{{d.division}}" name="bestOf_{{d.division}}" [(ngModel)]="d.best_of_div" (keyup.enter)="getFishRegSeq(d, 'best_of_div', 'best_of_div_name', '', 'best_of_div_subclass', d.division, '')" class="form-control form-control-sm my-2"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 border border-dark border-start-0 border-top-0">
+            <div class="row">
+                <div class="col border-bottom border-dark">
+                    <span class="fw-bold">WINNER'S NAME</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span>{{ d.best_of_div_name }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 border border-dark border-start-0 border-top-0">
+            <div class="row">
+                <div class="col border-bottom border-dark">
+                    <span class="fw-bold">WINNING CLASS</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span>{{ d.best_of_div_subclass }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 border border-dark border-start-0 border-top-0">
+            <span class="fw-bold">TOTAL CLASS ENTRIES</span>
+        </div>
+        <div class="col-md-1 border border-dark border-start-0 border-top-0">
+            <span>{{ d.total_entries }}</span>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-md-12 d-flex justify-content-end">
+        <a (click)="updateResult()" class="btn btn-primary mx-2">Update</a>
+    </div>
+</div>

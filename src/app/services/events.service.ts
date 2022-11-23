@@ -59,4 +59,16 @@ export class EventsService extends IService {
     headers = this.createAuthHeader(headers);
     return this.http.post<any>(this.baseApiUrl + '/api/Events/SubmitEventResult', req, { headers: headers, withCredentials: true })
   }
+
+  editEventResult(req: any): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = this.createAuthHeader(headers);
+    return this.http.post<any>(this.baseApiUrl + '/api/Events/EditEventResult', req, { headers: headers, withCredentials: true })
+  }
+
+  updateEventResult(req: any): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = this.createAuthHeader(headers);
+    return this.http.post<any>(this.baseApiUrl + '/api/Events/UpdateEventResult', req, { headers: headers, withCredentials: true })
+  }
 }

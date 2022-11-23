@@ -17,6 +17,7 @@ import { LoginComponent } from './components/Auth/login/login.component';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { EditRegistrationComponent } from './components/Events/edit-registration/edit-registration.component';
 import { EventResultComponent } from './components/Events/event-result/event-result.component';
+import { EditEventResultComponent } from './components/Events/edit-event-result/edit-event-result.component';
 
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -33,7 +34,8 @@ export function tokenGetter() {
     MaintainEvtRegComponent,
     LoginComponent,
     EditRegistrationComponent,
-    EventResultComponent
+    EventResultComponent,
+    EditEventResultComponent
   ],
   imports: [
     BrowserModule,

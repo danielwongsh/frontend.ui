@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/Auth/login/login.component';
 import { AddEventsComponent } from './components/Events/add-events/add-events.component';
+import { EditEventResultComponent } from './components/Events/edit-event-result/edit-event-result.component';
 import { EditRegistrationComponent } from './components/Events/edit-registration/edit-registration.component';
 import { EventRegistrationComponent } from './components/Events/event-registration/event-registration.component';
 import { EventResultComponent } from './components/Events/event-result/event-result.component';
@@ -53,6 +54,14 @@ const routes: Routes = [
   {
     path: 'event-result/:id/:searchParm',
     component: EventResultComponent
+  },
+  {
+    path: 'event-result-edit/:id',
+    component: EditEventResultComponent
+  },
+  {
+    path: 'event-result-edit/:id/:searchParm',
+    component: EditEventResultComponent
   }
 ];
 
