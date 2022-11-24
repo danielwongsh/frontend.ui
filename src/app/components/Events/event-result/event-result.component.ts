@@ -69,9 +69,11 @@ export class EventResultComponent implements OnInit {
   }
 
   getEntries(fishClass: string, fishSubclass: string): number {
-    const entries = this.entries.filter(x => x.fish_class == fishClass && x.fish_subclass == fishSubclass);
-    if (entries && entries.length > 0){
-      return entries[0].entries;
+    if (this.entries && this.entries.length > 0) {
+      const entries = this.entries.filter(x => x.fish_class == fishClass && x.fish_subclass == fishSubclass);
+      if (entries && entries.length > 0){
+        return entries[0].entries;
+      }
     }
     return 0;
   }

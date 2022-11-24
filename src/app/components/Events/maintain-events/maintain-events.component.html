@@ -29,8 +29,8 @@
             <td>{{ event.events.description }}</td>
             <td>
                 <a class="btn btn-primary" [routerLink]="['/event-registration', event.events.id]">Registration</a>
-                <a [routerLink]="['/event-result', event.events.id]" class="btn btn-primary mx-2" *ngIf="event.resultID == '00000000-0000-0000-0000-000000000000'">Result</a>
-                <a [routerLink]="['/event-result-edit', event.resultID]" class="btn btn-primary mx-2" *ngIf="event.resultID != '00000000-0000-0000-0000-000000000000'">Edit Result</a>
+                <a [routerLink]="['/event-result', event.events.id]" class="btn btn-primary mx-2" *ngIf="event.resultID === '00000000-0000-0000-0000-000000000000'">Result</a>
+                <a [routerLink]="['/event-result-edit', event.resultID]" class="btn btn-primary mx-2" *ngIf="event.resultID !== '00000000-0000-0000-0000-000000000000'">Edit Result</a>
                 <a class="btn btn-danger mx-1" (click)="deleteEvent(event)"><i class="bi bi-x"></i></a>
             </td>
         </tr>
